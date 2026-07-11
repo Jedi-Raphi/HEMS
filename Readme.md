@@ -1,6 +1,6 @@
 # Quick start guide
 ```bash
-git clone
+git clone https://github.com/Jedi-Raphi/HEMS.git
 cd HEMS
 ```
 
