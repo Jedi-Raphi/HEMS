@@ -1,6 +1,6 @@
 {
   "MQTT_object_broker": {
-    "IP": "192.168.68.128",
+    "IP": "192.168.68.123",
     "Port": 1883,
     "Method": "MQTT"
   },

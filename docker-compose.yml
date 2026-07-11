@@ -1,14 +1,4 @@
 services:
-  HEMS:
-    build: ./HEMS
-    container_name: HEMS
-    restart: unless-stopped
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mqtt
-
-
   mqtt:
     image: eclipse-mosquitto
     container_name: mosquitto_broker
@@ -19,4 +9,15 @@ services:
       - ./mosquitto/config:/mosquitto/config:rw
       - ./mosquitto/data:/mosquitto/data:rw
       - ./mosquitto/log:/mosquitto/log:rw
+    restart: unless-stopped
+  hems:
+    build: ./HEMS
+    container_name: hems
+    ports:
+      - "5000:5000"
+    environment:
+      - MQTT_USER=your_user
+      - MQTT_PASSWORD=your_password
+    depends_on:
+      - mqtt
     restart: unless-stopped
