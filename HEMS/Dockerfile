@@ -1,15 +1,15 @@
-From python:3.14
+FROM python:3.14
 
-run apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
     libffi-dev \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-run pip install --upgrade pip
-run pip install flask paho-mqtt 
-run pip install simple_pid
+RUN pip install --upgrade pip
+RUN pip install flask paho-mqtt 
+RUN pip install simple_pid
 
 COPY . /app
 WORKDIR /app
