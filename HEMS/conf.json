@@ -1,0 +1,48 @@
+{
+  "MQTT_object_broker": {
+    "IP": "192.168.68.128",
+    "Port": 1883,
+    "Method": "MQTT"
+  },
+
+  "Grid_power": {
+    "Type": "Shelly",
+    "Gen": 1,
+    "Method": "MQTT",
+    "ID": "shellyem-244CAB432629",
+    "Chanel": 0
+  },
+  "solar": {
+    "Panel1": {
+      "Brand": "dummy",
+      "IP": "192.168.68.11",
+      "kwc": 3000
+    }
+  },
+  "Devices": {
+    "Water_tank1": {
+      "Type": "water_tank",
+      "Sheme": "triac",
+      "ID":"Water_tank1",
+      "Max_consuption":"2000",
+      "Method": "MQTT",
+      "Sensor": {
+        "Water_temp": {
+          "Absolute_max": 80,
+          "Max": 70,
+          "Min": 30,
+          "Absolute_min": 30
+        }
+      },
+      "Actions": {
+        "Heating": true
+      },
+      "Need": {
+        "Activated": {
+          "Water_pump1": true
+        }
+      }
+    }
+    
+  }
+}

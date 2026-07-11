@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mosquitto_broker
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - /root/mosquitto/config:/mosquitto/config:rw
+      - /root/mosquitto/data:/mosquitto/data:rw
+      - /root/mosquitto/log:/mosquitto/log:rw
+    restart: unless-stopped

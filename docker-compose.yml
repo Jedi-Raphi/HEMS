@@ -1,0 +1,22 @@
+services:
+  HEMS:
+    build: ./HEMS
+    container_name: HEMS
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mqtt
+
+
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mosquitto_broker
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    restart: unless-stopped
